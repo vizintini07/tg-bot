@@ -6,6 +6,9 @@ class UserStatus(str, Enum):
     ANONYMOUS = "anonymous"
     AUTHORIZED = "authorized"
 
+class AuthStates(StatesGroup):
+    waiting_for_code = State()
+
 class TestProcess(StatesGroup):
     """Состояния прохождения теста"""
     in_attempt = State()
