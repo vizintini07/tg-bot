@@ -77,11 +77,11 @@ async def process_login(callback: types.CallbackQuery, session_manager: UserSess
     if auth_type == "code":
         auth_code = data.get("code") 
         await callback.message.edit_text(
-            f"Ваш код для входа: <code>{auth_code}</code>\n\n"
+            f"Ваш код для входа: {auth_code}\n\n"
             f"Введите этот код в веб-интерфейсе для авторизации."
         )
     else:
-        url = data.get("url")
+        url = data.get("auth_url")
         await callback.message.edit_text(
             f"Для входа через {auth_type.capitalize()} перейдите по ссылке:\n{url}",
             disable_web_page_preview=True
